@@ -2,5 +2,12 @@
     "name": "Gina",
     "wake_word": "hey gina",
     "your_name": "Jim",
-    "exit_words": ["exit", "quit"]
+    "exit_words": ["exit", "quit"],
+
+
+
+    "voice_engine_rate": 170,
+    "voice_engine_volume": 1.0
+
+
 }

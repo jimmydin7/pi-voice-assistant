@@ -12,6 +12,8 @@ with open(CONFIG_PATH, 'r') as f:
 ASSISTANT_NAME = config.get('name')
 USER_NAME = config.get('your_name')
 EXIT_WORDS = config.get('exit_words')
+ENGINE_RATE = config.get('voice_engine_rate')
+ENGINE_VOLUME = config.get('voice_engine_volume')
 
 
 def main():
@@ -27,7 +29,7 @@ def main():
 
             for keyword in EXIT_WORDS:
                 if keyword in command:
-                    speak(f"Goodbye {USER_NAME}!")
+                    speak(f"Goodbye {USER_NAME}!", rate=ENGINE_RATE, volume=ENGINE_VOLUME)
 
             response = parse_command(command)
             speak(response)

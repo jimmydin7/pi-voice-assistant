@@ -1,5 +1,6 @@
 {
     "name": "Gina",
+    "wake_word": "hey gina",
     "your_name": "Jim",
-    "wake_word": "hey gina"
+    "exit_words": ["exit", "quit"]
 }

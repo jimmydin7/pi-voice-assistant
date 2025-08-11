@@ -7,4 +7,4 @@ with open(CONFIG_PATH, 'r') as f:
     config = json.load(f)
 
 ASSISTANT_NAME = config.get('name')
-
+USER_NAME = config.get('your_name')

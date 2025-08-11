@@ -1,10 +1,11 @@
 import json
-from core.speech_to_text import listen#have to make this lol
-from core.text_to_speech import speak#have to make this lol
+from core.speech_to_text import listen
+from core.text_to_speech import speak
 from core.commands_parser import parse_command#have to make this lol
 import sys
 
 CONFIG_PATH = "data/config.json"
+WELCOME_MSG_PATH = "data/welcome.txt"
 
 with open(CONFIG_PATH, 'r') as f:
     config = json.load(f)
@@ -16,7 +17,10 @@ ENGINE_RATE = config.get('voice_engine_rate')
 ENGINE_VOLUME = config.get('voice_engine_volume')
 
 
+
+
 def main():
+    
     
     speak(f"Hey {USER_NAME}, how can I help you today?")
 

@@ -1,0 +1,8 @@
+Hey _USER_, how can I help you today?
+Hi there _USER_, what can I do for you?
+Welcome back _USER_, what's up?
+Hello _USER_, what's on your mind?
+Hello again _USER_, how can I help?
+Hi _USER_, what would you like me to do today?
+Hey _USER_, I am here to help!
+Hello _USER_, how can I assist you today?

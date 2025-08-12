@@ -4,13 +4,19 @@ from core.text_to_speech import speak#
 from core.commands_parser import parse_command
 import sys
 import random
+from logs import logger
 
 CONFIG_PATH = "data/config.json"
 WELCOME_MSG_PATH = "data/welcome.txt"
 
-with open(CONFIG_PATH, 'r') as f:
-    config = json.load(f)
 
+try:
+    with open(CONFIG_PATH, 'r') as f:
+        config = json.load(f)
+
+    logger.log('info', 'loaded config file')
+except Exception:
+    logger.log('error', 'could not load config file. check data/config.json')
 
 
 ASSISTANT_NAME = config.get('name')
@@ -21,10 +27,15 @@ ENGINE_VOLUME = config.get('voice_engine_volume')
 
 
 def load_welcome_message():
-    with open(WELCOME_MSG_PATH, 'r') as f:
-        welcome_messages = f.read().splitlines()
-        welcome_messages = [msg.replace('_USER_', USER_NAME) for msg in welcome_messages]
-        return random.choice(welcome_messages)
+    try:
+        with open(WELCOME_MSG_PATH, 'r') as f:
+            welcome_messages = f.read().splitlines()
+            welcome_messages = [msg.replace('_USER_', USER_NAME) for msg in welcome_messages]
+            return random.choice(welcome_messages)
+
+        logger.log('info', 'loaded welcome messages')
+    except Exception:
+        logger.log('error', 'could not load welecome messages. check data/welcome.txt')
 
 def main():
     

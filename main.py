@@ -1,7 +1,7 @@
 import json
 from core.speech_to_text import listen
 from core.text_to_speech import speak
-from core.commands_parser import parse_command#have to make this lol
+#from core.commands_parser import parse_command#have to make this lol
 import sys
 
 CONFIG_PATH = "data/config.json"
@@ -22,7 +22,7 @@ ENGINE_VOLUME = config.get('voice_engine_volume')
 def main():
     
     
-    speak(f"Hey {USER_NAME}, how can I help you today?")
+    speak(f"Hey {USER_NAME}, how can I help you today?", rate=ENGINE_RATE, volume=ENGINE_VOLUME)
 
     while True:
         try:
@@ -35,8 +35,8 @@ def main():
                 if keyword in command:
                     speak(f"Goodbye {USER_NAME}!", rate=ENGINE_RATE, volume=ENGINE_VOLUME)
 
-            response = parse_command(command)
-            speak(response)
+            #response = parse_command(command)
+            #speak(response)
 
         except KeyboardInterrupt:
             speak(f"Stopping {ASSISTANT_NAME}!")

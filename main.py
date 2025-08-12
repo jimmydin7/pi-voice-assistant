@@ -1,14 +1,17 @@
 import json
 from core.speech_to_text import listen
 from core.text_to_speech import speak
-#from core.commands_parser import parse_command#have to make this lol
+#from core.commands_parser import parse_command
 import sys
+import random
 
 CONFIG_PATH = "data/config.json"
 WELCOME_MSG_PATH = "data/welcome.txt"
 
 with open(CONFIG_PATH, 'r') as f:
     config = json.load(f)
+
+
 
 ASSISTANT_NAME = config.get('name')
 USER_NAME = config.get('your_name')
@@ -17,12 +20,17 @@ ENGINE_RATE = config.get('voice_engine_rate')
 ENGINE_VOLUME = config.get('voice_engine_volume')
 
 
-
+def load_welcome_message():
+    with open(WELCOME_MSG_PATH, 'r') as f:
+        welcome_messages = f.read().splitlines()
+        welcome_messages = [msg.replace('_USER_', USER_NAME) for msg in welcome_messages]
+        print(welcome_messages)
+        return random.choice(welcome_messages)
 
 def main():
     
     
-    speak(f"Hey {USER_NAME}, how can I help you today?", rate=ENGINE_RATE, volume=ENGINE_VOLUME)
+    speak(load_welcome_message(), rate=ENGINE_RATE, volume=ENGINE_VOLUME)
 
     while True:
         try:

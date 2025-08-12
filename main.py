@@ -28,7 +28,6 @@ def load_welcome_message():
 
 def main():
     
-    
     speak(load_welcome_message(), rate=ENGINE_RATE, volume=ENGINE_VOLUME)
 
     while True:

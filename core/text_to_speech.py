@@ -1,4 +1,6 @@
 import pyttsx3
+from logs import logger
+
 
 engine = pyttsx3.init()
 
@@ -13,4 +15,5 @@ def speak(text, rate, volume):
     engine.setProperty("volume", volume) 
     
     engine.say(text)
+    logger.log(f'response generated: "{text}"', 'info')
     engine.runAndWait()
